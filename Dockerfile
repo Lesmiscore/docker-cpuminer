@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y git libcurl4-openssl-dev gcc-mingw-w64 
 
 FROM ubuntu
 MAINTAINER nao20010128nao
-RUN apt-get update && apt-get install -y libcurl4-openssl-dev && rm -rf /var/lib/apt/lists
+RUN apt-get update && apt-get install -y libcurl3 && rm -rf /var/lib/apt/lists
 COPY --from=build /cpuminer/minerd /usr/bin
 RUN timeout 5m minerd -t 1 -a yescrypt -o stratum+tcp://jp.lapool.me:3014 -u nao20010128nao.user -p password || true
 ENTRYPOINT ["minerd"]
