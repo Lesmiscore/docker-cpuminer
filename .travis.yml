@@ -1,0 +1,16 @@
+sudo: required
+services:
+- docker
+env:
+  matrix:
+  - WHERE=. TAG=latest
+  - WHERE=koto TAG=koto
+  - WHERE=yenten TAG=yenten
+  - WHERE=opt TAG=opt
+
+notifications:
+  email: false
+
+script:
+  - docker build -t "nao20010128nao/docker-cpuminer:$TAG" ${WHERE}/
+  - true docker push "nao20010128nao/docker-cpuminer:$TAG"
