@@ -3,7 +3,7 @@ RUN apt-get update && apt-get install -y git file libcurl4-openssl-dev gcc-mingw
     git clone https://github.com/jayddee/cpuminer-opt.git cpuminer && \
     cd cpuminer && echo 'cpuminer_LDADD += -lcurl' >> Makefile.am && \
     ./autogen.sh && ./configure CFLAGS="-O3 -march=native -funroll-loops -fomit-frame-pointer" && make && \
-    file cpuminer && ldd 
+    file cpuminer && ldd cpuminer
 
 FROM ubuntu
 MAINTAINER nao20010128nao
