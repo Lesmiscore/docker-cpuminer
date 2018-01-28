@@ -9,4 +9,3 @@ MAINTAINER nao20010128nao
 RUN apt-get update && apt-get install -y libcurl3 && rm -rf /var/lib/apt/lists
 COPY --from=build /cpuminer/minerd /usr/bin
 ENTRYPOINT ["minerd"]
-CMD ["-a","yescrypt","-o","stratum+tcp://mine-zeny.mdpool.me:6969","-u","nao20010128nao.user","-p","password"] 
